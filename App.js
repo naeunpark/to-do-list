@@ -31,20 +31,21 @@ class App extends React.Component {
       <Provider store={store}>
         <PersistGate persistor={persistor}>
         <StatusBar barStyle={"light-content"} />
-          <AppContainer />
+          <AppContainer style={styles.customFont}/>
         </PersistGate>
       </Provider>
     );
-  }
+  };
 
   _loadAssetsAsync = async () => {
     return Promise.all([
       Asset.loadAsync([
         require("./assets/images/logo_trans.png")
-      ])
+      ]),
       // Font.loadAsync([
-      //   ...Ionicons.font,
-      //   ...MaterialIcons.font
+      //   require("./assets/fonts/Sunflower-Bold.ttf"),
+      //   require("./assets/fonts/Sunflower-Light.ttf"),
+      //   require("./assets/fonts/Sunflower-Medium.ttf")
       // ])
     ]);
   };
@@ -59,14 +60,10 @@ class App extends React.Component {
     });
   };
 }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#fff',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-// });
+const styles = StyleSheet.create({
+  customFont: {
+  fontFamily: 'Sunflower-Bold',
+  }
+ });
 
 export default App;
