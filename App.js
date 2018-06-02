@@ -1,11 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, StatusBar } from 'react-native';
 import { AppLoading, Asset, Font } from 'expo';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
-// import { Provider } from 'react-redux';
-// import { PersistGate } from 'redux-persist/es/integration/react';
-// import configureStore from './redux/configureStore';
-import LogIn from './components/LogIn/presenter';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/es/integration/react';
+import configureStore from './redux/configureStore';
+import AppContainer from './components/AppContainer/presenter';
 
 const { persistor, store } = configureStore();
 
@@ -30,7 +30,8 @@ class App extends React.Component {
     return (
       <Provider store={store}>
         <PersistGate persistor={persistor}>
-          <LogIn />
+        <StatusBar barStyle={"light-content"} />
+          <AppContainer />
         </PersistGate>
       </Provider>
     );
@@ -40,11 +41,11 @@ class App extends React.Component {
     return Promise.all([
       Asset.loadAsync([
         require("./assets/images/logo_trans.png")
-      ]),
-      Font.loadAsync([
-        ...Ionicons.font,
-        ...MaterialIcons.font
       ])
+      // Font.loadAsync([
+      //   ...Ionicons.font,
+      //   ...MaterialIcons.font
+      // ])
     ]);
   };
 
