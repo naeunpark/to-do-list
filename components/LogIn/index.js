@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { View, Text, StyleSheet, TextInput, Image } from "react-native";
 import Button from "../Button";
+import ThemeStyles from "../../styles/ThemeStyles";
 
 class LogIn extends Component {
     render () {
@@ -35,7 +36,7 @@ class LogIn extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#78b7bb',
+        backgroundColor: ThemeStyles.PRIMARY_COLOR,
         flex:1,
         flexDirection: "column"
     },
@@ -54,17 +55,17 @@ const styles = StyleSheet.create({
         height: 90, 
     },
     title: {
-        color: '#fff',
-        fontSize: 20,
-        fontWeight: "400",
+        color: ThemeStyles.LIGHT_COLOR,
+        fontSize: ThemeStyles.FONT_SIZE_MEDIUM,
+        fontWeight: ThemeStyles.FONT_WEIGHT_MEDIUM,
         marginTop:15,
         marginBottom: 5
      },
     input: {
         height: 55,
-        borderColor: '#fff',
+        borderColor: ThemeStyles.LIGHT_COLOR,
         borderWidth: 1,
-        backgroundColor: '#fff',
+        backgroundColor: ThemeStyles.LIGHT_COLOR,
         borderRadius: 5
     },
 });

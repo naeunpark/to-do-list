@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from "prop-types";
 import { StyleSheet, TouchableOpacity, Text } from "react-native";
+import ThemeStyles from "../../styles/ThemeStyles";
 
 function Button({btnName, onPress}){
     return (
@@ -17,16 +18,16 @@ Button.propTypes = {
 
 const styles = StyleSheet.create({
     button: {
-        backgroundColor: "#FFF0C3",
+        backgroundColor: ThemeStyles.SECONDARY_COLOR,
         borderRadius: 5,
         marginTop:25
     },
     btnText: {
-        fontSize: 25,
+        fontSize: ThemeStyles.FONT_SIZE_LARGE,
         margin: 15,
-        color: "#808B96",
+        color: ThemeStyles.DARK_COLOR,
         textAlign: "center",
-        fontWeight: "bold"
+        fontWeight: ThemeStyles.FONT_WEIGHT_HEAVY
     }
 });
 export default Button;
