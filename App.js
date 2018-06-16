@@ -42,11 +42,10 @@ class App extends React.Component {
       Asset.loadAsync([
         require("./assets/images/logo_trans.png")
       ]),
-      // Font.loadAsync([
-      //   require("./assets/fonts/Sunflower-Bold.ttf"),
-      //   require("./assets/fonts/Sunflower-Light.ttf"),
-      //   require("./assets/fonts/Sunflower-Medium.ttf")
-      // ])
+      Font.loadAsync({
+        ...MaterialIcons.font,
+        ...Ionicons.font
+      })
     ]);
   };
 

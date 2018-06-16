@@ -1,18 +1,21 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { View, Text, StatusBar, StyleSheet } from "react-native";
-import LogIn from "../LogIn";
+import { View, StatusBar, StyleSheet } from "react-native";
+import LogInScreen from "../../screens/LogInScreen";
+import ThemeStyles from "../../styles/ThemeStyles";
+import RootNavigation from "../../navigation/RootNavigation";
 
 class AppContainer extends Component {
     static propTypes = {
         isLoggedIn: PropTypes.bool.isRequired
     };
+    
     render() {
         const { isLoggedIn } = this.props;
         return (
             <View style={styles.container}>
               <StatusBar hidden={false} />
-              {isLoggedIn ? <Text>You are logged in</Text> : <LogIn />}
+              {isLoggedIn ? <RootNavigation /> : <LogInScreen />}
             </View>
         );
     }
@@ -20,7 +23,7 @@ class AppContainer extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: "#78b7bb",
+        backgroundColor: ThemeStyles.PRIMARY_COLOR,
         flex:1
     }
 });

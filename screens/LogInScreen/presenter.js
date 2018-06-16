@@ -1,11 +1,16 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { View, Text, StyleSheet, TextInput, Image } from "react-native";
-import Button from "../Button";
+import Button from "../../components/Button";
 import ThemeStyles from "../../styles/ThemeStyles";
 
-class LogIn extends Component {
+class LogInScreen extends Component {
     render () {
+        const { 
+            logIn,
+            logOut,
+            setUser } = this.props;
+            
         return(
             <View style={styles.container}>
               <View style={styles.logoContainer}>
@@ -27,7 +32,7 @@ class LogIn extends Component {
                   placeholder = "password"
                   autoCapitalize = "none"
                 />
-                <Button btnName="Log In" />
+                <Button btnName="Log In" onPressOut={logIn}/>
               </View>
             </View>
         );
@@ -70,4 +75,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default LogIn;
+export default LogInScreen;
